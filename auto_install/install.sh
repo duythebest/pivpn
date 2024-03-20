@@ -1748,7 +1748,7 @@ generateRandomSubnet() {
 
   while true; do
     MATCHES=0
-    pivpnNET="10.$((RANDOM % 256)).$((RANDOM % 256)).0"
+    pivpnNET="20.$((RANDOM % 256)).$((RANDOM % 256)).0"
 
     for SUB in "${SUBNET_EXCLUDE_LIST[@]}"; do
       if grepcidr "${SUB}" <<< "${pivpnNET}/${subnetClass}" \
