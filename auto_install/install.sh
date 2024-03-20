@@ -1748,10 +1748,10 @@ generateRandomSubnet() {
 
   while true; do
     MATCHES=0
-    pivpnNET="20.$((RANDOM % 256)).$((RANDOM % 256)).0"
+    pivpnNET="192.168.$((RANDOM % 256)).0"
 
     for SUB in "${SUBNET_EXCLUDE_LIST[@]}"; do
-      if grepcidr "${SUB}" <<< "${pivpnNET}/${subnetClass}" \
+      if grepcidr "${SUB}" <<< "${pivpnNET}/24" \
         2>&1 > /dev/null; then
         ((MATCHES++))
       fi
